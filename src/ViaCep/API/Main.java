@@ -9,8 +9,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -19,8 +17,6 @@ public class Main {
         Gson gson =
                 new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).setPrettyPrinting().create();
         String busca = "";
-
-        List<Cep> cepList = new ArrayList<>();
 
         while(!busca.equalsIgnoreCase("sair")){
             System.out.println("Digite o cep para busca: ");
@@ -41,16 +37,8 @@ public class Main {
             String json = response.body();
             System.out.println(json);
 
-            CepRecord cepRecord = gson.fromJson(json, CepRecord.class);
-            System.out.println(cepRecord);
-
-            Cep cep1 = new Cep(cepRecord);
-            System.out.println(cep1);
-
-            cepList.add(cep1);
-
-            System.out.println(cepList);
-
+            Endereco endereco = gson.fromJson(json, Endereco.class);
+            System.out.println(endereco);
 
         }
     }
