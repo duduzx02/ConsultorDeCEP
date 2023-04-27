@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner leitura = new Scanner(System.in);
         Gson gson =
-                new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).setPrettyPrinting().create();
+                new GsonBuilder().setPrettyPrinting().create();
         String busca = "";
 
         while(!busca.equalsIgnoreCase("sair")){
